@@ -18,30 +18,20 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Name</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Total Penjualan</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Role</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor & Nama</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Total Penjualan</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($users as $user)
                                         <tr>
                                             <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="{{ asset('assets') }}/img/team-4.jpg"
-                                                            class="avatar avatar-sm me-3 border-radius-lg"
-                                                            alt="user6">
-                                                    </div>
+                                                <div class="d-flex align-items-center px-2 py-1">
+                                                    <span class="fw-bold me-2">{{ $loop->iteration }}.</span>
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ auth()->user()->name }}</h6>
-                                                        <p class="text-xs text-secondary mb-0">
-                                                            {{ auth()->user()->email }}</p>
+                                                        <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                                        <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -50,16 +40,13 @@
                                                 <p class="text-xs text-secondary mb-0">Developer</p>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">{{auth()->user()->role}}</span>
+                                                <span class="badge badge-sm bg-gradient-secondary">{{ $user->role }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <a href="javascript:;"
-                                                    class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
-                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">Edit</a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -83,32 +70,19 @@
                                 <table class="table align-items-center justify-content-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Name</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Harga</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Satuan</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">
-                                                Harga Terjual</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">
-                                                Actions
-                                            </th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor & Nama</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Harga</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Satuan</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Harga Terjual</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($fruits as $fruit)
                                         <tr>
                                             <td>
-                                                <div class="d-flex px-2">
-                                                    <div>
-                                                        <img src="{{ asset('assets') }}/img/small-logos/devto.svg"
-                                                            class="avatar avatar-sm rounded-circle me-2" alt="buah">
-                                                    </div>
+                                                <div class="d-flex align-items-center px-2">
+                                                    <span class="fw-bold me-2">{{ $loop->iteration }}.</span>
                                                     <div class="my-auto">
                                                         <h6 class="mb-0 text-sm">{{ $fruit->nama_buah }}</h6>
                                                         <small class="text-muted">{{ $fruit->deskripsi }}</small>
@@ -125,9 +99,8 @@
                                                 <span class="text-xs font-weight-bold">{{ $fruit->stok }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <button class="btn btn-link text-secondary mb-0"
-                                                    aria-haspopup="true" aria-expanded="false">
-                                                       <i class="fa fa-ellipsis-v text-xs"></i>
+                                                <button class="btn btn-link text-secondary mb-0" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fa fa-ellipsis-v text-xs"></i>
                                                 </button>
                                             </td>
                                         </tr>
