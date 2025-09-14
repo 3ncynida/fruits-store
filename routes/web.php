@@ -18,6 +18,7 @@ use App\Http\Livewire\Tables;
 use App\Http\Livewire\VirtualReality;
 use GuzzleHttp\Middleware;
 use App\Http\Livewire\DashboardKasir;
+use App\Http\Livewire\BuahForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,7 @@ Route::get('create-user', function() {
     return view('livewire.create-user');
 })->middleware('auth')->name('create-user');
 
-Route::get('buah-form', function() {
-    return view('livewire.buah-form');
-})->middleware('auth')->name('buah-form');
+Route::get('buah-form', BuahForm::class)->middleware('auth')->name('buah-form');
 
 Route::get('/', function(){
     return redirect('sign-in');
